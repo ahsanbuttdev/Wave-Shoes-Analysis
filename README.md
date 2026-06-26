@@ -1,40 +1,42 @@
-Wave Shoes Retail Analytics Dashboard
-An end-to-end data analysis and visualization project analyzing sales, revenue trends, and product performance for Wave Shoes. This project showcases advanced SQL data manipulation alongside an executive-ready interactive dashboard.
+# Wave Shoes Retail Analytics
 
-📊 Project Overview
-This repository contains a comprehensive retail analytics solution designed to track key business metrics, monitor revenue trajectories, and identify top-performing product lines. The core objective is to translate raw transactional data into actionable business intelligence.
+A comprehensive, end-to-end data engineering and business intelligence project analyzing sales performance, revenue trajectories, and product metrics for Wave Shoes. This project demonstrates relational database manipulation using PostgreSQL and executive-level dashboard reporting.
 
-🛠️ Tech Stack & Tools
-Database Management: PostgreSQL (Data extraction, transformation, and view creation)
+## 📊 Project Overview
+This repository contains a production-ready analytics solution designed to transform raw transactional retail logs into structured business intelligence. The core objective is to deliver data-driven clarity on revenue health, customer purchasing behavior, and inventory performance.
 
-Business Intelligence: Looker Studio (Interactive dashboarding and reporting)
+## 🛠️ Tech Stack & Tools
+* **Database Engine:** PostgreSQL 
+* **Business Intelligence:** Looker Studio (Interactive data visualization and dashboard design)
+* **Version Control:** GitHub
 
-Version Control: GitHub
+---
 
-📁 Repository Structure
-Plaintext
-├── SQL/
-│   └── Wave_shoes.sql          # SQL scripts for data cleaning, aggregation, and analysis
-├── wave_shoes_dashboard.png     # Final production screenshot of the executive dashboard
-└── README.md                   # Project documentation
-💻 Database & SQL Implementation
-The core metrics and data structures driving the analytics were engineered directly within the database layer.
+## 📁 Repository Structure
+* **SQL/**
+  * `Wave_shoes.sql` — Main PostgreSQL script containing all schema modifications, data cleaning steps, and core analytical queries.
+* `wave_shoes_dashboard.png` — High-resolution production screenshot of the final reporting interface.
+* `README.md` — Project documentation and execution guide.
 
-The complete script can be found in SQL/Wave_shoes.sql. It covers:
+---
 
-Data Cleansing & Formatting: Standardizing text records, handling null parameters, and optimizing data types.
+## 💻 Database Implementation & Analytics (PostgreSQL)
+The data pipeline and analytical logic were constructed entirely within a PostgreSQL environment. The complete production script is located inside the `SQL/Wave_shoes.sql` file and covers:
 
-Aggregations & Views: Writing optimized queries to group monthly revenue and break down share metrics by product category.
+* **Data Cleaning & Standardization:** Standardizing string fields, handling missing transactional fields, and optimizing data types for indexing.
 
-📈 Executive Dashboard Visuals
-The final reporting layer was constructed to present high-level KPIs alongside granular behavioral breakdowns.
+---
 
-Final Production View
-Below is the screenshot of the executive dashboard layout:
+## 📈 Executive Dashboard Visuals
 
-Key Features of the Dashboard:
-Interactive Control Panel: Left-aligned slicers providing dynamic filtering capabilities.
+The visualization layer provides a high-impact overview of business performance, designed for stakeholders to evaluate critical KPIs at a single glance.
 
-Monthly Revenue Trend: A high-contrast visualization tracking month-over-month financial trajectory.
+### Production Interface
+Below is the direct rendering of the final executive dashboard layout:
 
-Revenue Share by Category: A clean, optimized distribution visual detailing categorical contribution to the business bottom line.
+![Wave Shoes Dashboard](wave_shoes_dashboard.png)
+
+### Core Dashboard Features:
+* **Dynamic Slicers:** Left-aligned interactive filters allowing stakeholders to drill down by dates, regions, and product types.
+* **Financial Trajectory:** High-contrast line charts tracking month-over-month revenue velocity.
+* **Categorical Volume:** Clean distributions identifying the highest-grossing product lines to optimize inventory.
