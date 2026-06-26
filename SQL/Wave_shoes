@@ -1,0 +1,93 @@
+drop table orders
+
+CREATE TABLE orders (
+    order_number VARCHAR(50),
+    order_date text,
+    customer_name VARCHAR(100),
+    city VARCHAR(100),
+    states VARCHAR(100),
+    order_type VARCHAR(50),
+    product VARCHAR(150),
+    category VARCHAR(100),
+    cost_per_unit NUMERIC(10,2),
+    selling_price_unit NUMERIC(10,2),
+    quantity INTEGER,
+    costs NUMERIC(12,2),
+    sales_amount NUMERIC(12,2)
+);
+
+
+copy orders
+from 'D:\datasets\Wave Shoes Store _ Sales Data - SD11 - SALES DATA.csv'
+delimiter ','
+CSV header
+
+select * from orders;
+
+alter table orders
+alter column order_date type DATE
+using to_date(order_date, 'DD/MM/YYYY')
+
+select distinct(count(order_number))
+from orders
+
+
+select distinct(product), quantity, costs, sales_amount
+from orders
+order by quantity desc
+limit 10
+
+-- highest generation by months
+
+select extract(month from order_date) as months,
+extract(year from order_date) as years,
+sum(sales_amount)
+from orders
+group by extract(month from order_date), extract(year from order_date)
+order by extract(month from order_date), extract(year from order_date) 
+
+-- days having most orders
+
+SELECT
+    TO_CHAR(order_date, 'Day') AS day_name,
+    TO_CHAR(order_date, 'Month') AS month_name,
+    TO_CHAR(order_date, 'YYYY') AS year,
+    SUM(quantity) AS total_quantity
+FROM orders
+GROUP BY
+    TO_CHAR(order_date, 'Day'),
+    TO_CHAR(order_date, 'Month'),
+    TO_CHAR(order_date, 'YYYY')
+ORDER BY total_quantity DESC;
+
+-- highest sales by order type
+
+select order_type, sum(sales_amount)
+from orders
+group by order_type
+order by sum(sales_amount) desc 
+
+-- highest sales by category type
+
+select category, sum(sales_amount)
+from orders
+group by category
+order by sum(sales_amount) desc 
+
+-- top 5 customers
+
+select customer_name, sum(sales_amount)
+from orders
+group by customer_name
+order by sum(sales_amount) desc
+limit 5
+
+select distinct(customer_name)
+from orders
+
+
+create view wave_shoes as (
+select * from orders
+)
+
+select * from wave_shoes
